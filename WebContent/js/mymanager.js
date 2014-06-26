@@ -112,5 +112,6 @@ var configurations = {
 };
 
 var messages = {
-	confirmDelete: "Are you sure you want to remove this user?"
+	confirmDelete: "Are you sure you want to remove this user?",
+	greeting:"Hello!!!!"
 };
