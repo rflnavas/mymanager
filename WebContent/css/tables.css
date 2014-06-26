@@ -1,0 +1,70 @@
+table{
+	border-collapse: collapse;
+	border-spacing:  5px;
+	padding:0px 0px 0px 0px;
+}
+
+td.rowData{
+	font-size:11px;
+	padding-left: 4px;
+	padding-right: 4px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	height:32px;
+}
+
+th{
+	font-size:13px;
+}
+
+td.cell-number{
+	text-align:right;
+}
+
+th{
+	background-image: -webkit-gradient(
+		linear,
+		left top,
+		left bottom,
+		color-stop(0, #1A1A1A),
+		color-stop(0.55, #4F4F4F)
+	);
+	background-image: -o-linear-gradient(bottom, #1A1A1A 0%, #4F4F4F 55%);
+	background-image: -moz-linear-gradient(bottom, #1A1A1A 0%, #4F4F4F 55%);
+	background-image: -webkit-linear-gradient(bottom, #1A1A1A 0%, #4F4F4F 55%);
+	background-image: -ms-linear-gradient(bottom, #1A1A1A 0%, #4F4F4F 55%);
+	background-image: linear-gradient(to bottom, #1A1A1A 0%, #4F4F4F 55%);
+	color:white;
+}
+
+tr.rowData:hover{
+	background-color: #f6ee99;
+	-webkit-transition: background-color .12s ease-in;
+	-moz-transition: background-color .12s ease-in;
+	-o-transition: background-color .12s ease-in;
+	-ms-transition: background-color .12s ease-in;
+	transition: background-color .12s ease-in;
+}
+
+table#usersList{
+	width:99%;
+}
+
+
+a.commandLink{
+	text-decoration:none;
+	padding: 5px 5px;
+	background-color:#BBBBBB;
+	border-radius:6px;
+	-moz-border-radius:6px;
+	font-size:10px;
+	cursor:pointer;
+}
+
+a.commandLink:hover{
+	background-color:#FF9999;
+}
+
+td.commandCell{
+	text-align:right;
+}

@@ -1,0 +1,71 @@
+<div id="userSearchContainer" data-ng-controller="userSearchController">
+<!-- 	<mm-load-users/> -->
+	<form name="queryUsers">
+		
+		<fieldset>
+			<legend>Search user</legend>
+			<div class="row">
+				<label>Name:</label>
+				<input type="search" name="name" data-ng-model="userSearch.name"/>
+			</div>
+			<div class="row">
+				<label>E-mail:</label>
+				<input type="search" name="email" data-ng-model="userSearch.email"/>
+			</div>
+			<div class="row">
+				<label>Days to change pass from:</label>
+				<input type="search" name="daysToChangePass" data-ng-model="userSearch.daysToChangePassFrom" class="numberInput"/>
+				<label class="shortLabel">to:</label>
+				<input type="search" name="daysToChangePass" data-ng-model="userSearch.daysToChangePassTo" class="numberInput"/>
+			</div>
+			<div class="row">
+				<label>Registered from:</label>
+				<input type="search" id="registerDateFrom" name="registerDateFrom" data-ng-model="userSearch.registerDateFrom" data-datepicker class="datepickerInput"/>
+				<label class="shortLabel">to:</label>
+				<input type="search" id="registerDateTo" name="registerDateTo" data-ng-model="userSearch.registerDateTo" data-datepicker class="datepickerInput"/>
+			</div>
+			<div class="row submit">
+				<button type="submit" id="btnSearchUsr">Search</button>
+			</div>
+		</fieldset>
+	
+	</form>
+	{{data.users}}
+	<table id="usersList">
+		<thead>
+			<tr>
+				<th></th>
+				<th>Name</th>
+				<th>E-mail</th>
+				<th>No. days</th>
+				<th>Registered on</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+		<tr 
+			data-ng-repeat="u in data.userList | filter:{name:userSearch.name, daysToChangePass:userSearch.daysToChangePass , email: userSearch.email} | filter: daysFilter | filter: dateFilter" 
+			class="rowData">
+			<td class="rowData">{{u.id}}</td>
+			<td class="rowData">{{u.name}}</td>
+			<td class="rowData">{{u.email}}</td>
+			<td class="rowData cell-number">{{u.daysToChangePass}}</td>
+			<td class="rowData cell-number">{{u.registerDate | date: 'dd/MM/yyyy hh:mm'}}</td>
+			<td class="rowData commandCell">
+				<a class="commandLink" data-edit-user data-ng-model="cellBtn" data-user-id="{{u.id}}" 
+					data-open-dialog="true" data-edit-dialog-id="editUserWidgetID">Edit</a>
+				<a class="commandLink" data-remove-user data-user-id="{{u.id}}"
+					data-confirm-dialog-id="dialogConfirmRemoveUser">Remove</a>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+	<!-- This layer is hidden by the CSS's display rule = 'none' -->
+	<div id="editUserContainer"> 
+  		<div data-user-widget data-uw-id="editUserWidgetID" data-uw-title="Edit user" data-uw-mode="edit"></div>
+	</div>
+	
+	<div data-confirm-dialog data-cd-id="dialogConfirmRemoveUser" 
+		 data-cd-message="Are you sure you want to remove this user?"></div>
+		
+</div>

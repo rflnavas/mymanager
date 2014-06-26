@@ -1,0 +1,93 @@
+<div id="{{uwId}}" data-ng-controller="userController">
+
+	<form name="usersForm" novalidate="novalidate" method="POST" onsubmit="return false;">
+		<fieldset>
+		<legend>{{title}}</legend>
+		
+		<input type="hidden" name="usersForm.id" data-ng-model="user.id"/>
+		
+		<div class="row">
+			<label>Name:</label>
+			<input type="text" data-ng-readonly="status.readonly" id="name" name="name" data-ng-model="user.name"
+				data-ng-minlength="4" data-ng-maxlength="20" placeholder="Type a name" data-ng-disabled="status.disabled"
+				data-ng-pattern="/^([a-zA-Z_])+$/" required/>
+			<div data-ng-show="usersForm.name.$dirty &&  usersForm.name.$invalid" class="error">
+				<div data-ng-show="usersForm.name.$error.required">
+					Name is required
+				</div>
+				<div data-ng-show="usersForm.name.$error.pattern">
+					Name is not valid
+				</div>
+				<div data-ng-show="usersForm.name.$error.minlength">
+					Name requires at least 4 characters
+				</div>
+				<div data-ng-show="usersForm.name.$error.maxlength">
+					Name cannot contain more than 20 characters
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<label>Password:</label>
+			<input type="password" data-ng-readonly="status.readonly" id="pass" name="pass" 
+				data-ng-model="user.password" placeholder="Enter new password" data-ng-disabled="status.disabled"
+				required data-ng-minlength="6" data-ng-pattern="/^[0-9]+$/"/>
+			<!--([a-zA-Z]+[0-9][a-zA-Z0-9]*)|([0-9]+[a-zA-Z][a-zA-Z0-9]*)-->
+			<div data-ng-show="usersForm.pass.$dirty &&  usersForm.pass.$invalid" class="error">
+				
+				<div data-ng-show="usersForm.pass.$error.required">
+					Password is required
+				</div>
+				<div data-ng-show="usersForm.pass.$error.pattern">
+					Password is not valid. It must contain letters and numbers
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<label>Days:</label>
+			<input type="text" data-ng-readonly="status.readonly" id="daysToChangePass" name="daysToChangePass" 
+				data-ng-model="user.daysToChangePass" data-ng-disabled="status.disabled"
+				required data-ng-pattern="/^[0-9]{1,3}$/" placeholder="Specify days to change pass"/>
+			<div data-ng-show="usersForm.daysToChangePass.$dirty && usersForm.daysToChangePass.$invalid" class="error">
+				<div data-ng-show="usersForm.daysToChangePass.$error.min">
+					Number of days cannot be negative
+				</div>
+				<div data-ng-show="usersForm.daysToChangePass.$error.max">
+					Too much days
+				</div>
+				<div data-ng-show="usersForm.daysToChangePass.$error.pattern">
+					Days must be a number.
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<label>E-mail:</label>
+			<input type="email" data-ng-readonly="status.readonly" id="email" name="email" data-ng-model="user.email" 
+				size="40" placeholder="Type an email" data-ng-disabled="status.disabled"/>
+			<div data-ng-show="usersForm.email.$dirty && usersForm.email.$invalid" class="error">
+				You typed an invalid email
+			</div>
+		</div>
+		
+		<div class="row" data-ng-show="editMode">
+			<label>Registered on:</label>
+			<input type="text" id="registerDate" name="registerDate" data-ng-model="user.registerDate" disabled="disabled"/>
+		</div>
+		
+		<div class="row submit">
+			<button type="submit" data-ng-show="newMode" data-ng-disabled="usersForm.$invalid" data-ng-click="create(user)">{{textButton}}</button>
+			<button type="submit" data-ng-show="editMode" data-ng-disabled="usersForm.$invalid" 
+				data-ng-click="update(user)">{{textButton}}</button> <!-- $scope.update -->
+			<button data-ng-show="editMode" data-ng-click="cancelEdit()">Cancel</button>
+		</div>
+		</fieldset>
+	</form>
+	
+	
+	
+	<div id="dbg" style="display:none;">
+		{{user.name}} {{user.pass}} {{user.daysToChangePass}}
+	</div>
+</div>

@@ -1,0 +1,91 @@
+<!DOCTYPE>
+<html data-ng-app="mymanager">
+
+<head>
+	<script src="js/data.js"></script>
+	<script src="js/lib/jquery-1.11.1.min.js"></script>
+	<script src="js/lib/jquery-ui-1.10.4.custom.min.js"></script>
+	<script src="js/lib/underscore.js"></script>
+	<script src="js/lib/angular.js"></script>
+	<script src="js/lib/angular-route.js"></script>
+	<script src="js/lib/angular-animate.min.js"></script>
+	<script src="js/mymanager.js"></script>
+	<script src="js/mymanager-services.js"></script>
+	<script src="js/mymanager-factories.js"></script>
+	<script src="js/mymanager-directives.js"></script>
+	<script src="js/mymanager-controllers.js"></script>
+	<script src="js/testing.js"></script>
+	<link rel="stylesheet" href="css/jquery-ui-1.10.4.custom.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/components.css">
+	<link rel="stylesheet" href="css/tables.css">
+	<!-- It must be here. This alters how URL is formed when the user clicks on a hyperlink given a relative path -->
+	<base href="/mymanager">
+	<script>
+		$(function(){
+			console.log("CARGA");
+		});
+	</script>
+</head>
+
+<body data-ng-controller="mainController">
+	<section>
+		<header>
+			<div>
+				<h2>MyManager</h2>
+			</div>
+		</header>
+	</section>
+	<section>
+	<nav>
+		<div id="menu">
+			<ul>
+				<li><a href="/">Init</a></li>
+				<li>Users
+					<ul>
+						<!-- data-ng-click="updateClickCounter(1)" -->
+						<li><a data-ng-href="#createUser">Create</a></li>
+						<li><a data-ng-href="#manageUsers">Manage</a></li>
+					</ul>
+			
+				</li>
+				<li>Roles
+					<ul>
+						<li>Create</li>
+						<li>Manage</li>
+						<li>Add/Remove user-roles</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	</section>
+	<section>
+		<div id="mainContainer">
+			<div data-notification-widget data-nw-id="notifications"></div>
+			<!-- Angular templating -->
+			<!-- this is where content will be injected -->
+			<div data-ng-view></div>
+			
+		</div>
+		
+		<!--  For tests purposes -->
+		<!-- 
+		<div data-mm-notify>
+		 		click
+		 	</div>
+		 <data-mm-first-directive/>
+		<div data-ng-controller="httpController">
+			<button data-ng-click="doClick()">Let's go!</button>
+		</div>
+	 	
+		 <button data-ng-click="generateMessage()">Notify!</button>
+		 <button data-ng-click="clearMessages()">Clear!</button>-->
+	</section>
+	<div style="clear:both;">
+		<footer>
+			<a data-ng-href="#about">About</a>
+		</footer>
+	</div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+
+#mainContainer{
+	float:left;
+	width: 75%;
+	max-width:75%;
+	min-width:75%;
+	padding: 10px;
+	position: absolute;
+    top: 70px;
+	bottom: 20px;
+	left: 260px;
+}
+
+#menu{
+	width: 20% !important;
+	min-width:20%;
+	float:left;
+
+	/*background-color:  #1a82f7;*/
+	background: -webkit-gradient(linear, left top, right top, from(#939393), to(#cecece));
+	/* Safari 5.1, Chrome 10+ */
+	background: -webkit-linear-gradient(left, #939393, #cecece);
+	
+	/* Firefox 3.6+ */
+	background: -moz-linear-gradient(left, #939393, #cecece);
+	
+	/* IE 10 */
+	background: -ms-linear-gradient(left, #939393, #cecece);
+	
+	/* Opera 11.10+ */
+	background: -o-linear-gradient(left, #939393, #cecece);
+	position: absolute;
+	bottom: 33px;
+	top: 67px;
+	z-index:1000;
+}
+
+#editUserContainer{
+	display:none;
+}
+
+.confirmMsgDialog{
+ 	display:none; 
+}
+
+div.messageBox, div.errorBox {
+	border-radius: 8px;
+	-moz-border-radius: 10px;
+	padding: 10px 20px;
+}
+
+div.messageBox{
+	background-color: #BBFFBB;
+	border: 2px #008800 solid;
+	color: #008800;
+	
+}
+
+div.errorBox {
+	background-color: #FFBBBB;
+	border: 2px #FF0000 solid;
+	color: #AA0000;
+}
+
+.notification{
+	width: 60%;
+	position: absolute;
+	z-index: 1000;
+	top: 0;
+	left: 50%;
+	margin-top: 0;
+	margin-left: -350px;
+}
+
+
