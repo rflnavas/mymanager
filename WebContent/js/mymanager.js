@@ -113,5 +113,6 @@ var configurations = {
 
 var messages = {
 	confirmDelete: "Are you sure you want to remove this user?",
-	greeting:"Hello!!!!"
+	greeting:"Hello!!!!",
+	bye:"for testing purposes..."
 };
