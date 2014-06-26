@@ -20,6 +20,10 @@ function doSomething(){
 	
 }
 
+function doIntensiveWorkOut(){
+	
+}
+
 //app.service('myService', function($http, $q) {
 //  var _this = this;
 //
