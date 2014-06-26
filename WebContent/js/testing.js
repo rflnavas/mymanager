@@ -16,6 +16,9 @@ app.controller("httpController", function($scope, $http) {
     };
 } );
 
+function doSomething(){
+	
+}
 
 //app.service('myService', function($http, $q) {
 //  var _this = this;
